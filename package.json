@@ -1,0 +1,11 @@
+{
+  "name": "maztaa-project",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build": "npm --prefix frontend run build"
+  }
+}
