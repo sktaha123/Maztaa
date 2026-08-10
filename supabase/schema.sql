@@ -42,7 +42,7 @@ BEGIN
     NEW.email,
     COALESCE(NEW.raw_user_meta_data->>'full_name', NEW.raw_user_meta_data->>'name', ''),
     COALESCE(NEW.raw_user_meta_data->>'avatar_url', NEW.raw_user_meta_data->>'picture', ''),
-    COALESCE(NEW.app_metadata->>'provider', 'google')
+    COALESCE(NEW.raw_app_meta_data->>'provider', 'google')
   )
   ON CONFLICT (id) DO UPDATE SET
     email = EXCLUDED.email,
@@ -94,7 +94,7 @@ SELECT
   email, 
   COALESCE(raw_user_meta_data->>'full_name', raw_user_meta_data->>'name', ''), 
   COALESCE(raw_user_meta_data->>'avatar_url', raw_user_meta_data->>'picture', ''), 
-  COALESCE(app_metadata->>'provider', 'google')
+  COALESCE(raw_app_meta_data->>'provider', 'google')
 FROM auth.users
 ON CONFLICT (id) DO UPDATE SET
   email = EXCLUDED.email,
