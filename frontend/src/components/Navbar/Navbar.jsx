@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white z-50 px-6 py-3 border-b border-gray-200 shadow-sm">
-      <div className="font-semibold text-gray-800 text-sm mb-2">Navbar Section</div>
+      
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           {navLinks.map((link) => (
