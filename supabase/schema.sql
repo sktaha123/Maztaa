@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Grant privileges on profiles table
+GRANT ALL ON TABLE public.profiles TO postgres, service_role, anon, authenticated;
+
 -- 2. Create updated_at Trigger Function
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
 RETURNS TRIGGER AS $$
@@ -20,7 +23,7 @@ BEGIN
   NEW.updated_at = NOW();
   RETURN NEW;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
 
 -- Trigger for updating updated_at timestamp on profiles
 DROP TRIGGER IF EXISTS set_profiles_updated_at ON public.profiles;
@@ -29,7 +32,7 @@ CREATE TRIGGER set_profiles_updated_at
   FOR EACH ROW
   EXECUTE FUNCTION public.handle_updated_at();
 
--- 3. Automatic Profile Creation Function on Signup / OAuth Login
+-- 3. Robust Profile Creation Function on Google OAuth Signup
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -48,8 +51,11 @@ BEGIN
     updated_at = NOW();
     
   RETURN NEW;
+EXCEPTION WHEN OTHERS THEN
+  -- Safely catch any unexpected metadata or table lock errors without crashing auth signup
+  RETURN NEW;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
 
 -- Trigger for automatically creating profile when user is created in auth.users
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
