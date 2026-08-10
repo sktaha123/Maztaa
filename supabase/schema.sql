@@ -52,7 +52,6 @@ BEGIN
     
   RETURN NEW;
 EXCEPTION WHEN OTHERS THEN
-  -- Safely catch any unexpected metadata or table lock errors without crashing auth signup
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
@@ -87,3 +86,18 @@ CREATE POLICY "Users can update own profile"
   ON public.profiles
   FOR UPDATE
   USING (auth.uid() = id);
+
+-- 8. Backfill Query: Populate profiles table for existing users in auth.users
+INSERT INTO public.profiles (id, email, full_name, avatar_url, provider)
+SELECT 
+  id, 
+  email, 
+  COALESCE(raw_user_meta_data->>'full_name', raw_user_meta_data->>'name', ''), 
+  COALESCE(raw_user_meta_data->>'avatar_url', raw_user_meta_data->>'picture', ''), 
+  COALESCE(app_metadata->>'provider', 'google')
+FROM auth.users
+ON CONFLICT (id) DO UPDATE SET
+  email = EXCLUDED.email,
+  full_name = EXCLUDED.full_name,
+  avatar_url = EXCLUDED.avatar_url,
+  updated_at = NOW();
