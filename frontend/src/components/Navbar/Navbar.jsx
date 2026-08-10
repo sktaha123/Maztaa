@@ -37,49 +37,46 @@ export default function Navbar() {
   const initial = user?.email ? user.email.charAt(0).toUpperCase() : 'U';
 
   return (
-    <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: '#fff', zIndex: 1000, padding: '10px 20px', borderBottom: '1px solid #ccc' }}>
-      <div>Navbar Section</div>
-      <div style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: '5px' }}>
-        {navLinks.map((link) => (
-          <button
-            key={link.targetId}
-            onClick={() => handleScroll(link.targetId)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-          >
-            {link.label}
-          </button>
-        ))}
+    <nav className="fixed top-0 left-0 right-0 bg-white z-50 px-6 py-3 border-b border-gray-200 shadow-sm">
+      <div className="font-semibold text-gray-800 text-sm mb-2">Navbar Section</div>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          {navLinks.map((link) => (
+            <button
+              key={link.targetId}
+              onClick={() => handleScroll(link.targetId)}
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
 
         {user ? (
-          <div style={{ marginLeft: 'auto', display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <div className="flex items-center gap-3">
             {avatarUrl ? (
               <img
                 src={avatarUrl}
                 alt={user.email || 'User Profile'}
-                style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }}
+                className="w-8 h-8 rounded-full object-cover border border-gray-300"
               />
             ) : (
-              <div
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: '#0070f3',
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '14px',
-                }}
-              >
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
                 {initial}
               </div>
             )}
-            <button onClick={signOut}>Logout</button>
+            <button
+              onClick={signOut}
+              className="text-xs px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors"
+            >
+              Logout
+            </button>
           </div>
         ) : (
-          <button onClick={signInWithGoogle} style={{ marginLeft: 'auto' }}>
+          <button
+            onClick={signInWithGoogle}
+            className="text-xs px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-sm transition-colors"
+          >
             Login with Google
           </button>
         )}
