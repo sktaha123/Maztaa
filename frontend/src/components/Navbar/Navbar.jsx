@@ -33,6 +33,9 @@ export default function Navbar() {
     }
   };
 
+  const avatarUrl = user?.user_metadata?.avatar_url || user?.user_metadata?.picture;
+  const initial = user?.email ? user.email.charAt(0).toUpperCase() : 'U';
+
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: '#fff', zIndex: 1000, padding: '10px 20px', borderBottom: '1px solid #ccc' }}>
       <div>Navbar Section</div>
@@ -49,7 +52,30 @@ export default function Navbar() {
 
         {user ? (
           <div style={{ marginLeft: 'auto', display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <span>{user.email}</span>
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt={user.email || 'User Profile'}
+                style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#0070f3',
+                  color: '#fff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                }}
+              >
+                {initial}
+              </div>
+            )}
             <button onClick={signOut}>Logout</button>
           </div>
         ) : (
