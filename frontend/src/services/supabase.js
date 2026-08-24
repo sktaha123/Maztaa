@@ -1,18 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder-url.supabase.co';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-anon-key';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 /**
- * Initiate Google OAuth Sign In
+ * Sign In with Google OAuth
  */
-export const signInWithGoogle = async (redirectTo = window.location.origin) => {
+export const signInWithGoogle = async (redirectTo) => {
+  const finalRedirect = redirectTo || (typeof window !== 'undefined' ? window.location.origin + '/opportunities' : undefined);
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo,
+      redirectTo: finalRedirect,
     },
   });
 
@@ -25,7 +26,7 @@ export const signInWithGoogle = async (redirectTo = window.location.origin) => {
 };
 
 /**
- * Sign in with Email & Password
+ * Sign In with Email & Password
  */
 export const signInWithEmail = async (email, password) => {
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -42,9 +43,9 @@ export const signInWithEmail = async (email, password) => {
 };
 
 /**
- * Sign up with Email & Password
+ * Sign Up with Email & Password
  */
-export const signUpWithEmail = async (email, password, fullName = '') => {
+export const signUpWithEmail = async (email, password, fullName) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -56,7 +57,7 @@ export const signUpWithEmail = async (email, password, fullName = '') => {
   });
 
   if (error) {
-    console.error('Error signing up:', error.message);
+    console.error('Error signing up with email:', error.message);
     throw error;
   }
 
@@ -64,7 +65,7 @@ export const signUpWithEmail = async (email, password, fullName = '') => {
 };
 
 /**
- * Sign out current user
+ * Sign Out Current User
  */
 export const signOut = async () => {
   const { error } = await supabase.auth.signOut();
@@ -75,19 +76,21 @@ export const signOut = async () => {
 };
 
 /**
- * Submit Opportunity / Referral Application
+ * Submit Candidate Application
  */
 export const submitReferralApplication = async (application) => {
+  const fullName = application.fullName || `${application.firstName || ''} ${application.lastName || ''}`.trim();
+
   const { data, error } = await supabase
     .from('referral_applications')
     .insert([
       {
-        full_name: application.fullName,
+        full_name: fullName,
         email: application.email,
         role_selected: application.role,
         skills: application.skills,
-        portfolio_url: application.portfolioUrl || '',
-        notes: application.notes || '',
+        portfolio_url: application.portfolioUrl || application.linkedInUrl || '',
+        notes: application.phone ? `Phone: ${application.phone}\n${application.notes || ''}` : application.notes || '',
         status: 'pending',
       },
     ])
@@ -153,7 +156,7 @@ export const deleteApplication = async (id) => {
 };
 
 /**
- * Fetch Opportunities (From database with fallback to default siteContent)
+ * Fetch Opportunities
  */
 export const getOpportunities = async () => {
   try {
@@ -169,9 +172,13 @@ export const getOpportunities = async () => {
       id: item.id,
       date: item.date_posted || new Date(item.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
       title: item.title,
-      skills: Array.isArray(item.skills) ? item.skills : (item.skills || '').split(',').map((s) => s.trim()),
+      skills: Array.isArray(item.skills) ? item.skills : (item.skills || '').split(',').map((s) => s.trim()).filter(Boolean),
       pay: item.pay,
-      description: item.description,
+      jobType: item.job_type || 'Contractor (~15 hrs a week)',
+      location: item.location || 'Remote',
+      schedule: item.schedule || 'Flexible, you pick the hours and days (including weekends if desired)',
+      about: item.about || 'maztaa is a modern design & web development studio crafting high-converting digital products, brand identities, and high-performance applications for leading brands and frontier startups worldwide.',
+      description: item.description || 'In this role, you will collaborate with our core team to design, build, and deliver high-impact digital experiences.',
     }));
   } catch (err) {
     console.warn('Could not fetch opportunities:', err.message);
@@ -187,23 +194,44 @@ export const createOpportunity = async (opp) => {
     ? opp.skills
     : (opp.skills || '').split(',').map((s) => s.trim()).filter(Boolean);
 
+  const payload = {
+    title: opp.title,
+    skills: skillsArray,
+    pay: opp.pay,
+    description: opp.description,
+    job_type: opp.jobType || 'Contractor (~15 hrs a week)',
+    location: opp.location || 'Remote',
+    schedule: opp.schedule || 'Flexible, you pick the hours and days (including weekends if desired)',
+    about: opp.about || 'maztaa is a modern design & web development studio crafting high-converting digital products, brand identities, and high-performance applications for leading brands and frontier startups worldwide.',
+    date_posted: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    is_active: true,
+  };
+
   const { data, error } = await supabase
     .from('opportunities')
-    .insert([
-      {
-        title: opp.title,
-        skills: skillsArray,
-        pay: opp.pay,
-        description: opp.description,
-        date_posted: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        is_active: true,
-      },
-    ])
+    .insert([payload])
     .select();
 
   if (error) {
-    console.error('Error creating opportunity:', error.message);
-    throw error;
+    // If additional columns don't exist in Supabase table yet, fallback to base columns
+    const fallbackPayload = {
+      title: opp.title,
+      skills: skillsArray,
+      pay: opp.pay,
+      description: opp.description,
+      date_posted: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      is_active: true,
+    };
+    const { data: fallbackData, error: fallbackError } = await supabase
+      .from('opportunities')
+      .insert([fallbackPayload])
+      .select();
+
+    if (fallbackError) {
+      console.error('Error creating opportunity:', fallbackError.message);
+      throw fallbackError;
+    }
+    return fallbackData;
   }
 
   return data;

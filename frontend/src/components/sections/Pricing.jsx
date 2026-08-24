@@ -11,7 +11,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="section-padding bg-[#edf1f8] relative"
+      className="section-padding bg-[#edf1f8] relative overflow-hidden"
       aria-label="MAZTAA pricing"
     >
       {/* ── Decorative borders (in their own overflow-hidden wrapper) ── */}
@@ -37,8 +37,8 @@ export default function Pricing() {
         />
       </div>
 
-      {/* ── Content (NOT overflow-hidden so scroll + badge work fine) ── */}
-      <div className="relative z-10">
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Section Header */}
         <motion.div
@@ -57,7 +57,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* ── DESKTOP (md+): Equal-width 4-column static grid ── */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-4 px-4 sm:px-6 lg:px-8">
           {PRICING_PLANS.map((plan, i) => (
             <div key={plan.id} className="flex w-full">
               <PricingCard plan={plan} index={i} />
@@ -66,10 +66,10 @@ export default function Pricing() {
         </div>
 
         {/* ── MOBILE (< md): Native swipe / horizontal scroll ── */}
-        <div className="md:hidden">
+        <div className="md:hidden w-full max-w-full overflow-hidden">
           {/* Scroll track — pt-6 to allow badge overflow above card */}
           <div
-            className="flex gap-4 overflow-x-auto px-4 pt-6 pb-4 snap-x snap-mandatory"
+            className="flex gap-4 overflow-x-auto px-4 pt-6 pb-4 snap-x snap-mandatory w-full"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -80,12 +80,12 @@ export default function Pricing() {
             {PRICING_PLANS.map((plan, i) => (
               <div
                 key={plan.id}
-                className="flex-shrink-0 snap-center"
-                style={{ width: 'calc(100vw - 2rem)' }}
+                className="flex-shrink-0 snap-center w-[85vw] max-w-[340px]"
               >
                 <PricingCard plan={plan} index={i} />
               </div>
             ))}
+            <div className="flex-shrink-0 w-2" aria-hidden="true" />
           </div>
 
           {/* Static indicator dots */}
@@ -97,7 +97,7 @@ export default function Pricing() {
         </div>
 
         {/* Footer note */}
-        <p className="mt-10 text-xs text-neutral-500 text-center px-4">
+        <p className="mt-10 text-xs lg:text-sm text-neutral-500 text-center px-4">
           Have custom requirements? Contact us for a personalized quote.
         </p>
 

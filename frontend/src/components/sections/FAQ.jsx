@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-import { FAQ_ITEMS } from '../../data/siteContent';
+import { FAQ_ITEMS, SITE_CONFIG } from '../../data/siteContent';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -66,28 +66,29 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="section-padding bg-[#f4f7fc] border-t border-black/[0.06] relative overflow-hidden"
+      className="section-padding bg-[#edf1f8] border-t border-black/[0.06] relative"
       aria-label="Frequently asked questions"
     >
-      {/* Corner ambient shade */}
-      <div
-        className="absolute bottom-0 right-0 w-[450px] h-[450px] opacity-40 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at 100% 100%, rgba(200,215,255,0.7) 0%, transparent 60%)',
-        }}
-        aria-hidden="true"
-      />
+      {/* Corner ambient shade isolated in overflow-hidden */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+        <div
+          className="absolute bottom-0 right-0 w-[450px] h-[450px] opacity-40 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at 100% 100%, rgba(200,215,255,0.7) 0%, transparent 60%)',
+          }}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-[380px_1fr] gap-12 lg:gap-16 items-start">
 
-          {/* Left Column: Heading */}
+          {/* Left Column: Sticky Heading */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
-            className="lg:sticky lg:top-28"
+            className="lg:sticky lg:top-28 self-start"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold tracking-tight text-[#111317] leading-tight mb-4">
               Frequently asked questions
@@ -96,7 +97,7 @@ export default function FAQ() {
               Got more questions about our process, payment terms, or custom developments?
             </p>
             <a
-              href="mailto:CONTACT_EMAIL"
+              href={`mailto:${SITE_CONFIG.contactEmail}`}
               className="inline-flex items-center text-sm font-medium text-neutral-900 hover:underline"
             >
               Get in touch with us →

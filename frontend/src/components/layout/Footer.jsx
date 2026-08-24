@@ -27,7 +27,6 @@ const LEGAL_DOCS = [
   { label: 'Terms of Service', href: SITE_LINKS.terms   },
   { label: 'Privacy Policy',   href: SITE_LINKS.privacy  },
   { label: 'Refund Policy',    href: SITE_LINKS.refund   },
-  { label: 'EULA Agreement',   href: SITE_LINKS.eula     },
 ];
 
 const SOCIAL_LINKS = [
@@ -41,20 +40,19 @@ const SOCIAL_LINKS = [
 const STUDIO_NAV = NAV_LINKS.filter(l => !l.href.includes('opportunities') && !l.href.includes('refer'));
 const OPPORTUNITIES_NAV = [
   { label: 'Opportunities', href: '/opportunities' },
-  { label: 'Apply Now',     href: '/opportunities' },
 ];
 
 export default function Footer() {
   return (
     <footer
-      className="relative bg-[#e9eef7] border-t border-black/[0.06] overflow-hidden"
-      aria-label="MAZTAA footer"
+      className="relative bg-[#edf1f8] overflow-hidden"
+      aria-label="maztaa footer"
     >
-      {/* ── Warm Gradient Blob (like micro1 reference) ── */}
+      {/* ── Seamless Bottom Ambient Glow ── */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[260px] pointer-events-none z-0 opacity-80"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] pointer-events-none z-0 opacity-60"
         style={{
-          background: 'radial-gradient(ellipse at 55% 40%, rgba(255,165,100,0.42) 0%, rgba(210,90,195,0.32) 30%, rgba(145,95,255,0.22) 55%, transparent 75%)',
+          background: 'radial-gradient(ellipse at 50% 10%, rgba(215,100,200,0.25) 0%, rgba(155,110,255,0.15) 40%, transparent 75%)',
           filter: 'blur(60px)',
         }}
         aria-hidden="true"
@@ -68,7 +66,7 @@ export default function Footer() {
 
           {/* Logo Block */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-3">
-            <Link to="/" className="inline-block" aria-label="MAZTAA Home">
+            <Link to="/" className="inline-block" aria-label="maztaa Home">
               <Logo className="text-2xl" />
             </Link>
             <p className="text-xs text-neutral-500 leading-relaxed max-w-[200px]">
@@ -176,7 +174,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`MAZTAA on ${label}`}
+                  aria-label={`maztaa on ${label}`}
                   className="text-neutral-500 hover:text-black transition-colors"
                 >
                   <Icon />
@@ -187,17 +185,7 @@ export default function Footer() {
         </div>
 
         {/* Massive Watermark — subtle, like micro1 */}
-        <div
-          className="w-full overflow-hidden select-none pointer-events-none -mb-2 sm:-mb-4 text-center"
-          aria-hidden="true"
-        >
-          <span
-            className="font-heading font-bold leading-none inline-block text-black/[0.04]"
-            style={{ fontSize: '19vw', letterSpacing: '-0.04em' }}
-          >
-            maztaa.
-          </span>
-        </div>
+        
 
       </div>
     </footer>

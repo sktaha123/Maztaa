@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/sections/Hero';
@@ -10,6 +11,9 @@ import FAQ from '../components/sections/FAQ';
 import CTA from '../components/sections/CTA';
 
 export function Home() {
+  useEffect(() => {
+    document.title = 'maztaa — Web Design & High-Performance Development Studio';
+  }, []);
   return (
     <div className="bg-[#edf1f8] min-h-screen text-[#111317] selection:bg-neutral-900 selection:text-white relative">
       {/* Subtle Tactile Grain Overlay */}

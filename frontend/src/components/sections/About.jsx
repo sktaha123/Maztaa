@@ -11,8 +11,8 @@ export default function About() {
   return (
     <section
       id="about"
-      className="section-padding bg-[#edf1f8] relative border-t border-black/[0.06]"
-      aria-label="About MAZTAA"
+      className="section-padding bg-[#edf1f8] relative overflow-hidden border-t border-black/[0.06]"
+      aria-label="About maztaa"
     >
       {/* Ambient corner glow — top-right warm */}
       <div

@@ -1,0 +1,14 @@
+# Robots.txt for MAZTAA Studio
+User-agent: *
+Allow: /
+Allow: /opportunities
+Allow: /apply
+
+# Disallow internal admin & auth dashboards
+Disallow: /admin
+Disallow: /login
+Disallow: /portal
+Disallow: /checkout
+
+# Sitemap
+Sitemap: https://maztaa.com/sitemap.xml

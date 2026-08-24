@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, User } from 'lucide-react';
+import { Menu, ArrowRight, User } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG } from '../../data/siteContent';
 import { supabase } from '../../services/supabase';
 import Logo from '../ui/Logo';
@@ -13,6 +13,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActive] = useState('');
   const [user, setUser] = useState(null);
+
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -27,7 +29,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 15);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -51,73 +53,55 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const avatarUrl = user?.user_metadata?.avatar_url || user?.user_metadata?.picture;
+  const showFloatingNav = !isHome || scrolled;
 
   return (
     <>
       {/* ────────────────────────────────────────────────────────────
-          1. MOBILE VIEW (Full Width Header: Left Menu | Middle Logo | Right Login)
+          1. MOBILE HEADER (Clean transparent header: Left logo, Right hamburger)
           ──────────────────────────────────────────────────────────── */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#edf1f8]/95 backdrop-blur-md border-b border-black/[0.06] shadow-sm">
-        <div className="relative flex items-center justify-between px-4 py-3">
-          {/* Left: Menu Button */}
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="flex items-center justify-center w-9 h-9 rounded-xl text-neutral-800 transition-colors cursor-pointer relative z-10"
-            aria-label="Open navigation menu"
-            aria-expanded={menuOpen}
-          >
-            <Menu size={18} />
-          </button>
+      <header
+        className={[
+          'md:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 py-4 flex items-center justify-between',
+          scrolled ? 'bg-[#edf1f8]/90 backdrop-blur-md border-b border-black/[0.06] shadow-xs' : 'bg-transparent',
+        ].join(' ')}
+      >
+        {/* Left: maztaa. logo */}
+        <Link
+          to="/"
+          className="flex items-center select-none"
+          aria-label={`${SITE_CONFIG.name} — Home`}
+        >
+          <Logo className="text-2xl font-bold tracking-tight text-[#111317]" />
+        </Link>
 
-          {/* Middle: Absolutely centered maztaa. Logo */}
-          <Link
-            to="/"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center select-none"
-            aria-label={`${SITE_CONFIG.name} — Home`}
-          >
-            <Logo className="text-xl" />
-          </Link>
-
-          {/* Right: Login / Account Button */}
-          <Link
-            to="/login"
-            className="flex items-center gap-1.5 bg-white border border-black/[0.08] px-3 py-1.5 rounded-xl text-xs font-heading font-semibold text-neutral-800 hover:bg-neutral-50 shadow-sm transition-colors relative z-10"
-            aria-label="Account Login"
-          >
-            {user ? (
-              avatarUrl ? (
-                <img
-                  src={avatarUrl}
-                  alt="Account"
-                  className="w-4 h-4 rounded-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              ) : (
-                <User size={13} />
-              )
-            ) : null}
-            <span>{user ? 'Account' : 'Login'}</span>
-          </Link>
-        </div>
+        {/* Right: Clean Hamburger Icon */}
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="w-10 h-10 flex items-center justify-center text-[#111317] hover:opacity-70 transition-opacity cursor-pointer"
+          aria-label="Open navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <Menu size={24} strokeWidth={2.2} />
+        </button>
       </header>
 
       {/* ────────────────────────────────────────────────────────────
-          2. DESKTOP VIEW (Floating Centered Pill Navbar)
+          2. DESKTOP FLOATING PILL NAVBAR (Always visible)
           ──────────────────────────────────────────────────────────── */}
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="hidden md:flex fixed top-0 left-0 right-0 z-50 pt-4 px-4 pointer-events-none justify-center"
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="hidden md:flex fixed top-0 left-0 right-0 z-50 pt-4 px-4 justify-center"
       >
         <div
           className={[
-            'pointer-events-auto inline-flex items-center gap-3 sm:gap-5 pl-4 sm:pl-5 pr-2 py-1.5 rounded-2xl transition-all duration-300',
-            'bg-[#edf1f8]/94 backdrop-blur-md border border-[#d8e0ee]',
+            'inline-flex items-center gap-3 sm:gap-5 pl-4 sm:pl-5 pr-2 py-1.5 rounded-2xl transition-all duration-300',
+            'bg-[#edf1f8]/95 backdrop-blur-md border border-[#d8e0ee]',
             scrolled
               ? 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] bg-[#edf1f8]/98'
-              : 'shadow-[0_2px_12px_rgb(0,0,0,0.03)]',
+              : 'shadow-[0_4px_20px_rgb(0,0,0,0.04)]',
           ].join(' ')}
         >
           {/* maztaa. Wordmark Logo */}
@@ -166,7 +150,7 @@ export default function Navbar() {
               );
             })}
 
-            {/* Login / Profile Link */}
+            {/* Login / Account Link */}
             <Link
               to="/login"
               className="px-3 py-1.5 text-[13.5px] font-medium text-neutral-600 hover:text-black hover:bg-black/[0.03] rounded-lg transition-colors duration-200"
@@ -188,7 +172,7 @@ export default function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Drawer (Left-to-Right Slide-in) */}
+      {/* Mobile Top-to-Bottom Drawer */}
       <AnimatePresence>
         {menuOpen && (
           <MobileMenu

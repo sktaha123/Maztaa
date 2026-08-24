@@ -58,6 +58,10 @@ export function Admin() {
   const [newOppTitle, setNewOppTitle] = useState('');
   const [newOppSkills, setNewOppSkills] = useState('');
   const [newOppPay, setNewOppPay] = useState('');
+  const [newOppJobType, setNewOppJobType] = useState('Contractor (~15 hrs a week)');
+  const [newOppLocation, setNewOppLocation] = useState('Remote');
+  const [newOppSchedule, setNewOppSchedule] = useState('Flexible, you pick the hours and days (including weekends if desired)');
+  const [newOppAbout, setNewOppAbout] = useState('maztaa is a modern design & web development studio crafting high-converting digital products, brand identities, and high-performance applications for leading brands and frontier startups worldwide.');
   const [newOppDesc, setNewOppDesc] = useState('');
   const [creatingOpp, setCreatingOpp] = useState(false);
 
@@ -149,6 +153,10 @@ export function Admin() {
         title: newOppTitle,
         skills: newOppSkills,
         pay: newOppPay,
+        jobType: newOppJobType,
+        location: newOppLocation,
+        schedule: newOppSchedule,
+        about: newOppAbout,
         description: newOppDesc,
       });
       setShowAddOppModal(false);
@@ -264,7 +272,7 @@ export function Admin() {
         </div>
 
         <div className="relative z-10 text-center text-xs text-neutral-400">
-          MAZTAA Studio — Restricted Administrative Access
+          maztaa studio — restricted administrative access
         </div>
       </div>
     );
@@ -313,14 +321,14 @@ export function Admin() {
                 to="/"
                 className="text-xs text-neutral-500 hover:text-black hover:underline py-1"
               >
-                Return to MAZTAA Studio
+                Return to maztaa Studio
               </Link>
             </div>
           </div>
         </div>
 
         <div className="relative z-10 text-center text-xs text-neutral-400">
-          MAZTAA Studio — Restricted Administrative Access
+          maztaa studio — restricted administrative access
         </div>
       </div>
     );
@@ -537,7 +545,7 @@ export function Admin() {
 
                           <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500">
                             <a
-                              href={`mailto:${app.email}?subject=MAZTAA Opportunity — ${encodeURIComponent(app.role_selected)} Application`}
+                              href={`mailto:${app.email}?subject=maztaa Opportunity — ${encodeURIComponent(app.role_selected)} Application`}
                               className="inline-flex items-center gap-1.5 text-neutral-700 hover:text-black font-medium hover:underline"
                             >
                               <Mail size={13} />
@@ -735,7 +743,7 @@ export function Admin() {
       {/* MODAL: POST NEW OPPORTUNITY */}
       {showAddOppModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-          <div className="bg-white border border-black/[0.09] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white border border-black/[0.09] rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setShowAddOppModal(false)}
               className="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:text-black hover:bg-neutral-200 transition-colors"
@@ -747,24 +755,42 @@ export function Admin() {
               Post New Opportunity
             </h2>
             <p className="text-xs text-neutral-500 mb-6">
-              Create a new position or referral role to publish live on the Opportunities page.
+              Fill in the role details, required skills, and specifications to publish live on the Opportunities page.
             </p>
 
             <form onSubmit={handleCreateOpp} className="flex flex-col gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-neutral-700 mb-1">
-                  Opportunity Title *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Lead UI/UX Designer, Sales Referral Partner..."
-                  value={newOppTitle}
-                  onChange={(e) => setNewOppTitle(e.target.value)}
-                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black"
-                />
+              {/* Title & Pay */}
+              <div className="grid sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                    Opportunity Title *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. AI Engineer, UI/UX Designer..."
+                    value={newOppTitle}
+                    onChange={(e) => setNewOppTitle(e.target.value)}
+                    className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                    Pay Rate / Compensation *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. $60 - $120/hour pay or 20% / deal"
+                    value={newOppPay}
+                    onChange={(e) => setNewOppPay(e.target.value)}
+                    className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-black"
+                  />
+                </div>
               </div>
 
+              {/* Required Skills */}
               <div>
                 <label className="block text-xs font-semibold text-neutral-700 mb-1">
                   Required Skills (Comma separated) *
@@ -772,38 +798,81 @@ export function Admin() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. React, Next.js, Tailwind, 3+"
+                  placeholder="e.g. Python3, JAVA, Rust, TypeScript, Next.js, Bug fixing, Performance optimization"
                   value={newOppSkills}
                   onChange={(e) => setNewOppSkills(e.target.value)}
-                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black"
+                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-black"
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-neutral-700 mb-1">
-                  Pay Rate or Commission *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Pay: $50-$90/h or Pay: 20% / deal"
-                  value={newOppPay}
-                  onChange={(e) => setNewOppPay(e.target.value)}
-                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black"
-                />
+              {/* Job Type, Location & Schedule */}
+              <div className="grid sm:grid-cols-3 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                    Job Type
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Contractor (~15 hrs a week)"
+                    value={newOppJobType}
+                    onChange={(e) => setNewOppJobType(e.target.value)}
+                    className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-3.5 py-2 text-xs sm:text-sm focus:outline-none focus:border-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Remote (Global)"
+                    value={newOppLocation}
+                    onChange={(e) => setNewOppLocation(e.target.value)}
+                    className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-3.5 py-2 text-xs sm:text-sm focus:outline-none focus:border-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                    Schedule
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Flexible, you pick hours"
+                    value={newOppSchedule}
+                    onChange={(e) => setNewOppSchedule(e.target.value)}
+                    className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-3.5 py-2 text-xs sm:text-sm focus:outline-none focus:border-black"
+                  />
+                </div>
               </div>
 
+              {/* About maztaa Box Text */}
               <div>
                 <label className="block text-xs font-semibold text-neutral-700 mb-1">
-                  Role Description *
+                  About Section Summary
                 </label>
                 <textarea
-                  rows={3}
+                  rows={2}
+                  placeholder="maztaa is a modern design & web development studio..."
+                  value={newOppAbout}
+                  onChange={(e) => setNewOppAbout(e.target.value)}
+                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl p-3 text-xs sm:text-sm focus:outline-none focus:border-black resize-none"
+                />
+              </div>
+
+              {/* Detailed Description */}
+              <div>
+                <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  Job Summary & Responsibilities *
+                </label>
+                <textarea
+                  rows={4}
                   required
-                  placeholder="Briefly describe what this opportunity involves and candidate expectations..."
+                  placeholder="In this role, you will apply your expertise to... (responsibilities, deliverables, expectations)"
                   value={newOppDesc}
                   onChange={(e) => setNewOppDesc(e.target.value)}
-                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black resize-none"
+                  className="w-full bg-[#f8fafc] border border-black/[0.1] rounded-xl p-3.5 text-xs sm:text-sm focus:outline-none focus:border-black resize-none leading-relaxed"
                 />
               </div>
 
@@ -813,7 +882,7 @@ export function Admin() {
                 className="w-full bg-black text-white font-heading font-semibold text-sm py-3.5 rounded-xl hover:bg-neutral-800 transition-colors disabled:opacity-60 flex items-center justify-center gap-2 mt-2 cursor-pointer"
               >
                 {creatingOpp && <Loader2 size={15} className="animate-spin" />}
-                <span>Publish Opportunity</span>
+                <span>Publish Opportunity Live</span>
               </button>
             </form>
           </div>
@@ -822,7 +891,7 @@ export function Admin() {
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-black/[0.05] py-5 text-center text-xs text-neutral-400">
-        MAZTAA Studio — Administrative Management Portal
+        maztaa studio — administrative management portal
       </footer>
     </div>
   );

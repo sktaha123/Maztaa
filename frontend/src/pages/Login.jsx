@@ -101,7 +101,7 @@ export function Login() {
           <ArrowLeft size={14} />
           <span>Back to Home</span>
         </Link>
-        <Link to="/" aria-label="MAZTAA Home">
+        <Link to="/" aria-label="maztaa Home">
           <Logo className="text-xl" />
         </Link>
       </div>
@@ -312,7 +312,7 @@ export function Login() {
 
       {/* Footer copyright */}
       <div className="relative z-10 text-center text-xs text-neutral-400">
-        © {new Date().getFullYear()} MAZTAA. Secure Authentication.
+        © {new Date().getFullYear()} maztaa. Secure Authentication.
       </div>
     </div>
   );

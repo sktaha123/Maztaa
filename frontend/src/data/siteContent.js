@@ -4,7 +4,7 @@
 // ============================================================
 
 export const SITE_CONFIG = {
-  name: 'MAZTAA',
+  name: 'maztaa',
   tagline: 'Web Design & Development Studio',
   description: 'Custom websites and digital experiences built around your business. High-performance, human-designed, and built to convert.',
   url: 'https://maztaa.com',
@@ -14,36 +14,48 @@ export const SITE_CONFIG = {
 // NAVIGATION
 // ────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: 'About',         href: '/#about'         },
-  { label: 'Work',          href: '/#work'          },
-  { label: 'Process',       href: '/#process'       },
-  { label: 'Pricing',       href: '/#pricing'       },
-  { label: 'FAQ',           href: '/#faq'           },
-  { label: 'Opportunities', href: '/opportunities'  },
+  { label: 'About', href: '/#about' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Opportunities', href: '/opportunities' },
 ];
 
 // ────────────────────────────────────────────────────────────
 // EXTERNAL LINKS & PLACEHOLDERS
 // ────────────────────────────────────────────────────────────
 export const SITE_LINKS = {
-  email:     'hello@maztaa.com',
+  email: 'hello@maztaa.com',
   instagram: 'INSTAGRAM_URL',
-  linkedin:  'LINKEDIN_URL',
-  github:    'GITHUB_URL',
-  terms:     '/docs/terms-of-service.pdf',
-  privacy:   '/docs/privacy-policy.pdf',
-  refund:    '/docs/refund-policy.pdf',
-  eula:      '/docs/eula.pdf',
+  linkedin: 'LINKEDIN_URL',
+  github: 'GITHUB_URL',
+  terms: '/docs/terms-of-service.pdf',
+  privacy: '/docs/privacy-policy.pdf',
+  refund: '/docs/refund-policy.pdf',
+  eula: '/docs/eula.pdf',
 };
 
 // ────────────────────────────────────────────────────────────
-// WHOP CHECKOUT LINKS
+// WHOP CHECKOUT LINKS (Full & 40-30-30% Milestone Placeholders)
 // ────────────────────────────────────────────────────────────
 export const WHOP_LINKS = {
-  starter:      'https://whop.com/checkout/plan_DXCJKpooxfPJT',
-  professional: 'https://whop.com/checkout/plan_xwYUESNYuiFjB',
-  businessPro:  'https://whop.com/checkout/business-pro-plan-placeholder',
-  custom:       'https://whop.com/checkout/custom-plan-placeholder',
+  starter: {
+    full: 'https://whop.com/checkout/plan_B1Mocyk0NFz7p', // Full $800 upfront
+    milestone: 'https://whop.com/checkout/plan_DXCJKpooxfPJT_milestone_40', // 40% initial deposit ($320)
+  },
+  professional: {
+    full: 'https://whop.com/checkout/plan_lU05AVwVqUhoW', // Full $1,500 upfront
+    milestone: 'https://whop.com/checkout/plan_xwYUESNYuiFjB_milestone_40', // 40% initial deposit ($600)
+  },
+  businessPro: {
+    full: 'https://whop.com/checkout/business-pro-full-placeholder', // Full $2,800 upfront
+    milestone: 'https://whop.com/checkout/business-pro-milestone-40-placeholder', // 40% initial deposit ($1,120)
+  },
+  custom: {
+    full: 'https://whop.com/checkout/custom-full-placeholder',
+    milestone: 'https://whop.com/checkout/custom-milestone-40-placeholder',
+  },
 };
 
 // ────────────────────────────────────────────────────────────
@@ -53,21 +65,21 @@ export const HERO_CONTENT = {
   headlineLine1: 'Your business has a story.',
   headlineLine2: 'Make it worth explaining',
   subheading: 'Custom websites and digital experiences built around your business.',
-  ctaPrimary:   { label: 'View Our Work', href: '#work' },
+  ctaPrimary: { label: 'View Our Work', href: '#work' },
 };
 
 // ────────────────────────────────────────────────────────────
 // TECHNOLOGIES SECTION
 // ────────────────────────────────────────────────────────────
 export const TECHNOLOGIES = [
-  { name: 'React',         purpose: 'Component Architecture' },
-  { name: 'Next.js',       purpose: 'Production Framework'   },
-  { name: 'Tailwind CSS',  purpose: 'Design Systems'         },
-  { name: 'Framer Motion', purpose: 'Micro-Interactions'     },
-  { name: 'Supabase',      purpose: 'Backend & Database'     },
-  { name: 'Vite',          purpose: 'Modern Build Tooling'   },
-  { name: 'PostgreSQL',    purpose: 'Relational Data'        },
-  { name: 'Vercel',        purpose: 'Global Edge Deployment' },
+  { name: 'React', purpose: 'Component Architecture' },
+  { name: 'Next.js', purpose: 'Production Framework' },
+  { name: 'Tailwind CSS', purpose: 'Design Systems' },
+  { name: 'Framer Motion', purpose: 'Micro-Interactions' },
+  { name: 'Supabase', purpose: 'Backend & Database' },
+  { name: 'Vite', purpose: 'Modern Build Tooling' },
+  { name: 'PostgreSQL', purpose: 'Relational Data' },
+  { name: 'Vercel', purpose: 'Global Edge Deployment' },
 ];
 
 // ────────────────────────────────────────────────────────────
@@ -75,7 +87,7 @@ export const TECHNOLOGIES = [
 // ────────────────────────────────────────────────────────────
 export const ABOUT_CONTENT = {
   statement: `We design digital experiences that make your business impossible to ignore.`,
-  description: `MAZTAA was built on a simple belief: your website should be your strongest business asset. We combine bold, editorial aesthetics with modern frontend engineering to create custom digital platforms that elevate your brand and drive real client acquisition.`,
+  description: `maztaa was built on a simple belief: your website should be your strongest business asset. We combine bold, editorial aesthetics with modern frontend engineering to create custom digital platforms that elevate your brand and drive real client acquisition.`,
   philosophy: `Every business has a distinct story. We build digital spaces tailored specifically to your clients' psychology and your conversion goals.`,
   capabilities: [
     'Custom Brand & UI Design',
@@ -134,22 +146,22 @@ export const PROCESS_STEPS = [
 export const PROJECTS = [
   {
     id: 'project-1',
-    name: 'Aethel Studio',
-    category: 'Architecture & Design',
-    description: 'A minimalist portfolio and client acquisition platform built for a contemporary architectural practice.',
-    tags: ['React', 'Tailwind', 'Framer Motion'],
-    image: '/images/projects/project-01.webp',
-    url: 'https://example.com/aethel',
+    name: 'Biznorx Company',
+    category: 'Recruitment',
+    description: 'A recruitment and workforce solutions platform designed to help organizations make confident hiring decisions.',
+    tags: ['React', 'Tailwind', 'Framer Motion', 'Supabase', 'Lucide-React'],
+    image: '/images/projects/project01.webp',
+    url: 'https://biznorx.com',
     featured: true,
   },
   {
     id: 'project-2',
-    name: 'Vanguard Capital',
-    category: 'Fintech & Investment',
-    description: 'High-trust digital experience with client onboarding workflows and secure investment portal.',
-    tags: ['Next.js', 'Supabase', 'Tailwind'],
-    image: '/images/projects/project-02.webp',
-    url: 'https://example.com/vanguard',
+    name: 'WorkSphere OKR Software',
+    category: 'Startup & Growth Platform',
+    description: 'A goal management platform that helps teams and organizations track progress towards their objectives.',
+    tags: ['Next.js', 'Supabase', 'Tailwind', 'Framer Motion', 'Lucide-React', 'shadcn UI', 'Vercel', 'Google Auth'],
+    image: '/images/projects/project02.webp',
+    url: 'https://momentum-vert-chi.vercel.app/dashboard',
     featured: false,
   },
   {
@@ -192,17 +204,37 @@ export const PRICING_PLANS = [
       accentBadge: 'bg-blue-50 text-blue-700 border-blue-200',
     },
     features: [
-      { label: 'Custom 1–3 Page Website',    included: true },
-      { label: 'Responsive Design (Mobile)',   included: true },
-      { label: 'Contact & Inquiry System',    included: true },
-      { label: 'SEO & Performance Setup',     included: true },
-      { label: 'Client Management Portal',   included: false },
-      { label: 'Custom Backend Integrations', included: false },
+      { label: 'Custom Website Pages', included: true },
+      { label: 'Responsive Mobile & Tablet Design', included: true },
+      { label: 'Custom Brand-Based UI/UX', included: true },
+      { label: 'Contact & Inquiry System', included: true },
+      { label: 'Click-to-Call & WhatsApp Integration', included: true },
+      { label: 'Google Maps Integration', included: true },
+      { label: 'Social Media Integration', included: true },
+      { label: 'CMS / Content Management', included: false },
+      { label: 'Basic SEO Setup', included: true },
+      { label: 'Advanced SEO & Metadata', included: false },
+      { label: 'Performance Optimization', included: true },
+      { label: 'Analytics & Conversion Tracking', included: false },
+      { label: 'Domain Connection & Deployment', included: true },
+      { label: 'SSL & Security Configuration', included: true },
+      { label: 'Custom Backend / API Development', included: false },
+      { label: 'Supabase Database Integration', included: false },
+      { label: 'User Authentication & Google Login', included: false },
+      { label: 'Role-Based User Access', included: false },
+      { label: 'Admin Dashboard', included: false },
+      { label: 'Client / Customer Management Portal', included: false },
+      { label: 'Booking & Scheduling System', included: false },
+      { label: 'Third-Party API Integrations', included: false },
+      { label: 'Payment Gateway Integration', included: false },
+      { label: 'Custom Web Application Features', included: false },
+      { label: 'Post-Launch Support', included: true },
+      { label: 'Ongoing Maintenance Options', included: false },
     ],
     milestones: [
-      { label: 'Deposit to Start',        percent: '40%', amount: '$320' },
-      { label: 'After Dev Review',        percent: '30%', amount: '$240' },
-      { label: 'Before Final Launch',     percent: '30%', amount: '$240' },
+      { label: 'Deposit to Start', percent: '40%', amount: '$320' },
+      { label: 'After Dev Review', percent: '30%', amount: '$240' },
+      { label: 'Before Final Launch', percent: '30%', amount: '$240' },
     ],
   },
   {
@@ -219,17 +251,37 @@ export const PRICING_PLANS = [
       accentBadge: 'bg-purple-50 text-purple-700 border-purple-200',
     },
     features: [
-      { label: 'Custom 5–8 Page Website',    included: true },
-      { label: 'Micro-Interactions & Motion', included: true },
-      { label: 'Interactive Project Showcase',included: true },
-      { label: 'Client Portal Integration',  included: true },
-      { label: 'Advanced SEO & Analytics',   included: true },
-      { label: 'Custom Backend API',          included: false },
+      { label: 'Custom Website Pages', included: true },
+      { label: 'Responsive Mobile & Tablet Design', included: true },
+      { label: 'Custom Brand-Based UI/UX', included: true },
+      { label: 'Contact & Inquiry System', included: true },
+      { label: 'Click-to-Call & WhatsApp Integration', included: true },
+      { label: 'Google Maps Integration', included: true },
+      { label: 'Social Media Integration', included: true },
+      { label: 'CMS / Content Management', included: true },
+      { label: 'Basic SEO Setup', included: true },
+      { label: 'Advanced SEO & Metadata', included: true },
+      { label: 'Performance Optimization', included: true },
+      { label: 'Analytics & Conversion Tracking', included: false },
+      { label: 'Domain Connection & Deployment', included: true },
+      { label: 'SSL & Security Configuration', included: true },
+      { label: 'Custom Backend / API Development', included: true },
+      { label: 'Supabase Database Integration', included: true },
+      { label: 'User Authentication & Google Login', included: true },
+      { label: 'Role-Based User Access', included: false },
+      { label: 'Admin Dashboard', included: false },
+      { label: 'Client / Customer Management Portal', included: false },
+      { label: 'Booking & Scheduling System', included: false },
+      { label: 'Third-Party API Integrations', included: true },
+      { label: 'Payment Gateway Integration', included: false },
+      { label: 'Custom Web Application Features', included: false },
+      { label: 'Post-Launch Support', included: true },
+      { label: 'Ongoing Maintenance Options', included: false },
     ],
     milestones: [
-      { label: 'Deposit to Start',        percent: '40%', amount: '$600' },
-      { label: 'After Dev Review',        percent: '30%', amount: '$450' },
-      { label: 'Before Final Launch',     percent: '30%', amount: '$450' },
+      { label: 'Deposit to Start', percent: '40%', amount: '$600' },
+      { label: 'After Dev Review', percent: '30%', amount: '$450' },
+      { label: 'Before Final Launch', percent: '30%', amount: '$450' },
     ],
   },
   {
@@ -246,17 +298,37 @@ export const PRICING_PLANS = [
       accentBadge: 'bg-rose-50 text-rose-700 border-rose-200',
     },
     features: [
-      { label: 'Full Web App & Portal',       included: true },
-      { label: 'Database & Auth System',      included: true },
-      { label: 'Checkout & Payment Flow',     included: true },
-      { label: 'Custom Admin Dashboard',      included: true },
-      { label: 'Priority Launch Support',     included: true },
-      { label: 'Speed & Security Guarantee',  included: true },
+      { label: 'Custom Website Pages', included: true },
+      { label: 'Responsive Mobile & Tablet Design', included: true },
+      { label: 'Custom Brand-Based UI/UX', included: true },
+      { label: 'Contact & Inquiry System', included: true },
+      { label: 'Click-to-Call & WhatsApp Integration', included: true },
+      { label: 'Google Maps Integration', included: true },
+      { label: 'Social Media Integration', included: true },
+      { label: 'CMS / Content Management', included: true },
+      { label: 'Basic SEO Setup', included: true },
+      { label: 'Advanced SEO & Metadata', included: true },
+      { label: 'Performance Optimization', included: true },
+      { label: 'Analytics & Conversion Tracking', included: true },
+      { label: 'Domain Connection & Deployment', included: true },
+      { label: 'SSL & Security Configuration', included: true },
+      { label: 'Custom Backend / API Development', included: true },
+      { label: 'Supabase Database Integration', included: true },
+      { label: 'User Authentication & Google Login', included: true },
+      { label: 'Role-Based User Access', included: true },
+      { label: 'Admin Dashboard', included: true },
+      { label: 'Client / Customer Management Portal', included: true },
+      { label: 'Booking & Scheduling System', included: true },
+      { label: 'Third-Party API Integrations', included: true },
+      { label: 'Payment Gateway Integration', included: false },
+      { label: 'Custom Web Application Features', included: false },
+      { label: 'Post-Launch Support', included: true },
+      { label: 'Ongoing Maintenance Options', included: false },
     ],
     milestones: [
-      { label: 'Deposit to Start',        percent: '40%', amount: '$1,120' },
-      { label: 'After Dev Review',        percent: '30%', amount: '$840' },
-      { label: 'Before Final Launch',     percent: '30%', amount: '$840' },
+      { label: 'Deposit to Start', percent: '40%', amount: '$1,120' },
+      { label: 'After Dev Review', percent: '30%', amount: '$840' },
+      { label: 'Before Final Launch', percent: '30%', amount: '$840' },
     ],
   },
   {
@@ -273,17 +345,37 @@ export const PRICING_PLANS = [
       accentBadge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     },
     features: [
-      { label: 'Full Custom Architecture',    included: true },
-      { label: 'Dedicated Design Sprints',    included: true },
-      { label: 'Custom API & DB Modeling',    included: true },
-      { label: 'Automated CI/CD Pipeline',    included: true },
-      { label: 'SLA & 90-Day Handover QA',    included: true },
-      { label: 'Dedicated Lead Engineer',     included: true },
+      { label: 'Custom Website Pages', included: true },
+      { label: 'Responsive Mobile & Tablet Design', included: true },
+      { label: 'Custom Brand-Based UI/UX', included: true },
+      { label: 'Contact & Inquiry System', included: true },
+      { label: 'Click-to-Call & WhatsApp Integration', included: true },
+      { label: 'Google Maps Integration', included: true },
+      { label: 'Social Media Integration', included: true },
+      { label: 'CMS / Content Management', included: true },
+      { label: 'Basic SEO Setup', included: true },
+      { label: 'Advanced SEO & Metadata', included: true },
+      { label: 'Performance Optimization', included: true },
+      { label: 'Analytics & Conversion Tracking', included: true },
+      { label: 'Domain Connection & Deployment', included: true },
+      { label: 'SSL & Security Configuration', included: true },
+      { label: 'Custom Backend / API Development', included: true },
+      { label: 'Supabase Database Integration', included: true },
+      { label: 'User Authentication & Google Login', included: true },
+      { label: 'Role-Based User Access', included: true },
+      { label: 'Admin Dashboard', included: true },
+      { label: 'Client / Customer Management Portal', included: true },
+      { label: 'Booking & Scheduling System', included: true },
+      { label: 'Third-Party API Integrations', included: true },
+      { label: 'Payment Gateway Integration', included: true },
+      { label: 'Custom Web Application Features', included: true },
+      { label: 'Post-Launch Support', included: true },
+      { label: 'Ongoing Maintenance Options', included: true },
     ],
     milestones: [
-      { label: 'Deposit to Start',        percent: '40%', amount: 'Custom' },
-      { label: 'Milestone 2 Delivery',    percent: '30%', amount: 'Custom' },
-      { label: 'Final Launch Delivery',   percent: '30%', amount: 'Custom' },
+      { label: 'Deposit to Start', percent: '40%', amount: 'Custom' },
+      { label: 'Milestone 2 Delivery', percent: '30%', amount: 'Custom' },
+      { label: 'Final Launch Delivery', percent: '30%', amount: 'Custom' },
     ],
   },
 ];
@@ -297,23 +389,62 @@ export const PRICING_PLANS = [
 export const FAQ_ITEMS = [
   {
     question: 'How does the milestone payment structure work?',
-    answer: 'Every project is structured into three clear milestones: 40% initial deposit to begin design and discovery, 30% after you review and approve the functional development build, and the final 30% before official domain deployment and code handover. No surprises, no hidden fees.',
+    answer:
+      'Every project is divided into three milestones: 40% to begin the project, 30% after you review the functional development build, and the final 30% before final launch and project handover. The exact milestones are confirmed before work begins.',
   },
+
+  {
+    question: 'What is included in the price?',
+    answer:
+      'Your package includes the features, pages, integrations, support period, and deliverables listed on its pricing page. Anything outside the agreed scope can be quoted separately before additional work begins.',
+  },
+
   {
     question: 'How long does a typical website project take?',
-    answer: 'Starter projects typically launch within 1–2 weeks. Professional and Business Pro projects generally take 2–4 weeks depending on scope, custom interactions, and asset preparation.',
+    answer:
+      'Starter projects typically take 1–2 weeks, Professional projects around 2–3 weeks, and Business Pro projects around 3–4 weeks. Larger custom projects may take longer depending on functionality and project scope.',
   },
+
   {
-    question: 'Will my website look and work great on mobile devices?',
-    answer: 'Absolutely. Every website we create is engineered mobile-first with fluid responsive layouts, optimized images, fast touch interactions, and zero horizontal overflow across any screen size.',
+    question: 'Will my website work properly on mobile devices?',
+    answer:
+      'Yes. Every MAZTAA website is built responsively for mobile, tablet, and desktop. We optimize layouts, typography, images, navigation, and interactions to provide a smooth experience across screen sizes.',
   },
+
   {
-    question: 'Can I update content on my website after launch?',
-    answer: 'Yes. All project content, copy, pricing, and external links are centralized in structured data files (or connected to Supabase CMS), making future updates straightforward.',
+    question: 'Do you provide the domain and hosting?',
+    answer:
+      'We can help connect and deploy your website to your domain and hosting provider. Domain registration, renewals, hosting, and third-party service fees are included only when specifically stated in your selected plan.',
   },
+
   {
-    question: 'What do I need to prepare before we get started?',
-    answer: 'You only need a general idea of your goals, target audience, and any brand assets you already have (logos, copy, photography). We handle the creative direction, design system, and technical implementation from start to finish.',
+    question: 'Can you add custom features to my website?',
+    answer:
+      'Yes. Professional and higher plans can include features such as databases, authentication, APIs, booking systems, dashboards, and custom integrations. Features outside your plan can be discussed as additional or custom work.',
+  },
+
+  {
+    question: 'How many revisions are included?',
+    answer:
+      'Each plan includes a defined revision allowance based on its scope. Revisions cover reasonable changes to the agreed design or functionality. Major redesigns or new features may require additional work and fees.',
+  },
+
+  {
+    question: 'Can I update my website after it launches?',
+    answer:
+      'Yes. Depending on your plan, we can provide CMS functionality or structured content management. We also offer ongoing maintenance for businesses that need regular updates, improvements, or technical support.',
+  },
+
+  {
+    question: 'Who owns my website after the project is completed?',
+    answer:
+      'After full payment, ownership or usage rights for the agreed final deliverables are transferred according to your project agreement. Third-party software, open-source libraries, and MAZTAA pre-existing tools remain subject to their respective licenses.',
+  },
+
+  {
+    question: 'What happens after my website goes live?',
+    answer:
+      'Your included post-launch support period begins after launch. We can help resolve issues related to the delivered project during that period. Ongoing maintenance, new features, and major changes can be arranged separately.',
   },
 ];
 
@@ -323,7 +454,7 @@ export const FAQ_ITEMS = [
 export const CTA_CONTENT = {
   headline: `Your business is ready.\nIs your website?`,
   subheading: 'Let’s build a digital experience that reflects the caliber of your work and turns visitors into clients.',
-  ctaPrimary:   { label: 'Start a Project', href: '#pricing' },
+  ctaPrimary: { label: 'Start a Project', href: '#pricing' },
   ctaSecondary: { label: 'Explore Opportunities', href: '/opportunities' },
 };
 
