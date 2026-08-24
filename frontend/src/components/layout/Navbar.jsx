@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* Left: Menu Button */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex items-center justify-center w-9 h-9 rounded-xl bg-white border border-black/[0.08] text-neutral-800 hover:bg-neutral-50 shadow-sm transition-colors cursor-pointer"
+          className="flex items-center justify-center w-9 h-9 rounded-xl  text-neutral-800  transition-colors cursor-pointer"
           aria-label="Open navigation menu"
           aria-expanded={menuOpen}
         >

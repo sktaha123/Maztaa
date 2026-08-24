@@ -38,7 +38,10 @@ export function Login() {
   const handleGoogleLogin = async () => {
     try {
       setErrorMsg('');
-      await signInWithGoogle(window.location.origin + redirectTo);
+      // Use current origin so it works on both localhost and the live deployed domain
+      const origin = window.location.origin;
+      const callbackPath = redirectTo.startsWith('/') ? redirectTo : `/${redirectTo}`;
+      await signInWithGoogle(`${origin}${callbackPath}`);
     } catch (err) {
       setErrorMsg(err.message || 'Failed to sign in with Google');
     }
