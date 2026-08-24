@@ -43,6 +43,12 @@ export default function Process() {
       className="section-padding bg-[#edf1f8] border-t border-black/[0.06] relative"
       aria-label="How MAZTAA works"
     >
+      {/* Ambient corner glow — bottom-left cool blue */}
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[350px] pointer-events-none z-0 opacity-60"
+        style={{ background: 'radial-gradient(ellipse at 8% 90%, rgba(160,195,255,0.45) 0%, rgba(200,170,255,0.20) 50%, transparent 70%)', filter: 'blur(55px)' }}
+        aria-hidden="true"
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Desktop Layout: Sticky Left Side + Smooth Natural Scrolling Cards on Right */}

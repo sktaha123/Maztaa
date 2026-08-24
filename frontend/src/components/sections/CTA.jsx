@@ -14,12 +14,10 @@ export default function CTA() {
       className="section-padding bg-[#edf1f8] border-t border-black/[0.06] relative overflow-hidden"
       aria-label="Call to action"
     >
-      {/* Atmospheric corner ambient shaders */}
+      {/* Warm gradient blob — like micro1 footer ambient */}
       <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 110%, rgba(200,215,255,0.8) 0%, rgba(237,241,248,0) 70%)',
-        }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[280px] pointer-events-none z-0 opacity-75"
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(255,160,95,0.40) 0%, rgba(210,90,190,0.30) 35%, rgba(145,95,255,0.20) 60%, transparent 80%)', filter: 'blur(55px)' }}
         aria-hidden="true"
       />
 

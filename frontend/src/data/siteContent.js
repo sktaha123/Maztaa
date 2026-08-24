@@ -40,8 +40,8 @@ export const SITE_LINKS = {
 // WHOP CHECKOUT LINKS
 // ────────────────────────────────────────────────────────────
 export const WHOP_LINKS = {
-  starter:      'https://whop.com/checkout/starter-plan-placeholder',
-  professional: 'https://whop.com/checkout/professional-plan-placeholder',
+  starter:      'https://whop.com/checkout/plan_DXCJKpooxfPJT',
+  professional: 'https://whop.com/checkout/plan_xwYUESNYuiFjB',
   businessPro:  'https://whop.com/checkout/business-pro-plan-placeholder',
   custom:       'https://whop.com/checkout/custom-plan-placeholder',
 };

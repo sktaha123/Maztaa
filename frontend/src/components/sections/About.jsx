@@ -11,9 +11,15 @@ export default function About() {
   return (
     <section
       id="about"
-      className="section-padding bg-[#edf1f8] relative overflow-hidden border-t border-black/[0.06]"
+      className="section-padding bg-[#edf1f8] relative border-t border-black/[0.06]"
       aria-label="About MAZTAA"
     >
+      {/* Ambient corner glow — top-right warm */}
+      <div
+        className="absolute top-0 right-0 w-[500px] h-[320px] pointer-events-none z-0 opacity-70"
+        style={{ background: 'radial-gradient(ellipse at 90% 10%, rgba(255,185,140,0.40) 0%, rgba(200,170,255,0.20) 50%, transparent 70%)', filter: 'blur(50px)' }}
+        aria-hidden="true"
+      />
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 text-center">
         <motion.div
           initial="hidden"

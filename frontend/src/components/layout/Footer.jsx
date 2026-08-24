@@ -2,23 +2,24 @@ import { Link } from 'react-router-dom';
 import { NAV_LINKS, SITE_LINKS, FOOTER_CONTENT } from '../../data/siteContent';
 import Logo from '../ui/Logo';
 
-const IconInstagram = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+const IconX = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.265 5.638L18.244 2.25zM17.083 20.75h1.833L6.997 4.083H5.034z"/>
   </svg>
 );
 const IconLinkedin = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
+const IconInstagram = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
   </svg>
 );
 const IconGithub = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
   </svg>
 );
 
@@ -30,52 +31,65 @@ const LEGAL_DOCS = [
 ];
 
 const SOCIAL_LINKS = [
-  { label: 'Instagram', href: SITE_LINKS.instagram, key: 'INSTAGRAM_URL', Icon: IconInstagram },
-  { label: 'LinkedIn',  href: SITE_LINKS.linkedin,  key: 'LINKEDIN_URL',  Icon: IconLinkedin  },
-  { label: 'GitHub',    href: SITE_LINKS.github,    key: 'GITHUB_URL',    Icon: IconGithub    },
+  { label: 'X / Twitter', href: SITE_LINKS.twitter   || '#', Icon: IconX         },
+  { label: 'LinkedIn',    href: SITE_LINKS.linkedin   || '#', Icon: IconLinkedin  },
+  { label: 'Instagram',   href: SITE_LINKS.instagram  || '#', Icon: IconInstagram },
+  { label: 'GitHub',      href: SITE_LINKS.github     || '#', Icon: IconGithub    },
+];
+
+// Studio nav split into two logical sub-groups for the micro1 multi-col layout
+const STUDIO_NAV = NAV_LINKS.filter(l => !l.href.includes('opportunities') && !l.href.includes('refer'));
+const OPPORTUNITIES_NAV = [
+  { label: 'Opportunities', href: '/opportunities' },
+  { label: 'Apply Now',     href: '/opportunities' },
 ];
 
 export default function Footer() {
   return (
     <footer
-      className="bg-[#e9eef7] border-t border-black/[0.06] pt-16 sm:pt-20 overflow-hidden relative"
+      className="relative bg-[#e9eef7] border-t border-black/[0.06] overflow-hidden"
       aria-label="MAZTAA footer"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+      {/* ── Warm Gradient Blob (like micro1 reference) ── */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[260px] pointer-events-none z-0 opacity-80"
+        style={{
+          background: 'radial-gradient(ellipse at 55% 40%, rgba(255,165,100,0.42) 0%, rgba(210,90,195,0.32) 30%, rgba(145,95,255,0.22) 55%, transparent 75%)',
+          filter: 'blur(60px)',
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Multi-Column Top Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 pb-16">
+      {/* ── Main Grid ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-14 sm:pt-16 pb-0">
 
-          {/* Logo & Intro */}
-          <div className="col-span-2 lg:col-span-2 flex flex-col gap-4">
+        {/* Top Section: Logo + 4 Columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 pb-12 border-b border-black/[0.06]">
+
+          {/* Logo Block */}
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-3">
             <Link to="/" className="inline-block" aria-label="MAZTAA Home">
               <Logo className="text-2xl" />
             </Link>
-            <p className="text-sm text-neutral-500 leading-relaxed max-w-sm">
+            <p className="text-xs text-neutral-500 leading-relaxed max-w-[200px]">
               {FOOTER_CONTENT.description}
             </p>
           </div>
 
-          {/* Studio Navigation */}
+          {/* Studio Links */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-heading font-semibold text-neutral-900 uppercase tracking-wider mb-1">
+            <p className="text-[11px] font-heading font-semibold text-neutral-500 uppercase tracking-wider">
               Studio
             </p>
-            <ul className="flex flex-col gap-2.5">
-              {NAV_LINKS.map((link) => (
+            <ul className="flex flex-col gap-2">
+              {STUDIO_NAV.map((link) => (
                 <li key={link.href}>
                   {link.href.startsWith('/') && !link.href.includes('#') ? (
-                    <Link
-                      to={link.href}
-                      className="text-sm text-neutral-600 hover:text-black transition-colors"
-                    >
+                    <Link to={link.href} className="text-sm text-neutral-700 hover:text-black transition-colors">
                       {link.label}
                     </Link>
                   ) : (
-                    <a
-                      href={link.href}
-                      className="text-sm text-neutral-600 hover:text-black transition-colors"
-                    >
+                    <a href={link.href} className="text-sm text-neutral-700 hover:text-black transition-colors">
                       {link.label}
                     </a>
                   )}
@@ -84,53 +98,79 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal / Terms & Conditions Column with PDF Placeholders */}
+          {/* Opportunities Links */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-heading font-semibold text-neutral-900 uppercase tracking-wider mb-1">
-              Legal & Terms
+            <p className="text-[11px] font-heading font-semibold text-neutral-500 uppercase tracking-wider">
+              Work With Us
             </p>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-2">
+              {OPPORTUNITIES_NAV.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.href} className="text-sm text-neutral-700 hover:text-black transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a href={`mailto:${SITE_LINKS.email}`} className="text-sm text-neutral-700 hover:text-black transition-colors">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-col gap-3">
+            <p className="text-[11px] font-heading font-semibold text-neutral-500 uppercase tracking-wider">
+              Legal
+            </p>
+            <ul className="flex flex-col gap-2">
               {LEGAL_DOCS.map((doc) => (
                 <li key={doc.label}>
                   <a
                     href={doc.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-neutral-600 hover:text-black transition-colors inline-flex items-center gap-1.5"
-                    title={`Open ${doc.label} PDF`}
+                    className="text-sm text-neutral-700 hover:text-black transition-colors"
                   >
-                    <span>{doc.label}</span>
-                    <span className="text-[10px] text-neutral-400 font-mono">PDF</span>
+                    {doc.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact / Support */}
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-heading font-semibold text-neutral-900 uppercase tracking-wider mb-1">
-              Contact
+            <p className="text-[11px] font-heading font-semibold text-neutral-500 uppercase tracking-wider">
+              Support
             </p>
-            <a
-              href={`mailto:${SITE_LINKS.email}`}
-              className="text-sm text-neutral-600 hover:text-black transition-colors"
-            >
-              {SITE_LINKS.email}
-            </a>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a href={`mailto:${SITE_LINKS.email}`} className="text-sm text-neutral-700 hover:text-black transition-colors">
+                  {SITE_LINKS.email}
+                </a>
+              </li>
+              <li>
+                <Link to="/login" className="text-sm text-neutral-700 hover:text-black transition-colors">
+                  Client Login
+                </Link>
+              </li>
+            </ul>
           </div>
+
         </div>
 
-        {/* Bottom Bar with Socials */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 border-t border-black/[0.06]">
-          <p className="text-xs text-neutral-500 font-medium">
+        {/* Bottom Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5">
+          <p className="text-xs text-neutral-500 font-medium order-2 sm:order-1">
             {FOOTER_CONTENT.copyright}
           </p>
 
-          <div className="flex items-center gap-5">
-            {SOCIAL_LINKS.map(({ label, href, key, Icon }) => {
-              const isPlaceholder = href === key;
-              return isPlaceholder ? null : (
+          {/* Social Icons */}
+          <div className="flex items-center gap-4 order-1 sm:order-2">
+            {SOCIAL_LINKS.map(({ label, href, Icon }) =>
+              href === '#' ? null : (
                 <a
                   key={label}
                   href={href}
@@ -141,20 +181,24 @@ export default function Footer() {
                 >
                   <Icon />
                 </a>
-              );
-            })}
+              )
+            )}
           </div>
         </div>
 
-        {/* Massive Watermark Logo */}
-        <div className="w-full overflow-hidden select-none pointer-events-none -mb-6 sm:-mb-10 text-center" aria-hidden="true">
+        {/* Massive Watermark — subtle, like micro1 */}
+        <div
+          className="w-full overflow-hidden select-none pointer-events-none -mb-2 sm:-mb-4 text-center"
+          aria-hidden="true"
+        >
           <span
-            className="font-heading font-bold text-[20vw] leading-none tracking-tighter inline-block text-black/[0.035]"
-            style={{ letterSpacing: '-0.03em' }}
+            className="font-heading font-bold leading-none inline-block text-black/[0.04]"
+            style={{ fontSize: '19vw', letterSpacing: '-0.04em' }}
           >
-            maztaa
+            maztaa.
           </span>
         </div>
+
       </div>
     </footer>
   );

@@ -58,46 +58,48 @@ export default function Navbar() {
       {/* ────────────────────────────────────────────────────────────
           1. MOBILE VIEW (Full Width Header: Left Menu | Middle Logo | Right Login)
           ──────────────────────────────────────────────────────────── */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#edf1f8]/95 backdrop-blur-md border-b border-black/[0.06] px-4 py-3 flex items-center justify-between shadow-sm">
-        {/* Left: Menu Button */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="flex items-center justify-center w-9 h-9 rounded-xl  text-neutral-800  transition-colors cursor-pointer"
-          aria-label="Open navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <Menu size={18} />
-        </button>
+      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#edf1f8]/95 backdrop-blur-md border-b border-black/[0.06] shadow-sm">
+        <div className="relative flex items-center justify-between px-4 py-3">
+          {/* Left: Menu Button */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="flex items-center justify-center w-9 h-9 rounded-xl text-neutral-800 transition-colors cursor-pointer relative z-10"
+            aria-label="Open navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <Menu size={18} />
+          </button>
 
-        {/* Middle: Centered maztaa. Logo */}
-        <Link
-          to="/"
-          className="flex items-center select-none"
-          aria-label={`${SITE_CONFIG.name} — Home`}
-        >
-          <Logo className="text-xl" />
-        </Link>
+          {/* Middle: Absolutely centered maztaa. Logo */}
+          <Link
+            to="/"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center select-none"
+            aria-label={`${SITE_CONFIG.name} — Home`}
+          >
+            <Logo className="text-xl" />
+          </Link>
 
-        {/* Right: Login / Account Button */}
-        <Link
-          to="/login"
-          className="flex items-center gap-1.5 bg-white border border-black/[0.08] px-3 py-1.5 rounded-xl text-xs font-heading font-semibold text-neutral-800 hover:bg-neutral-50 shadow-sm transition-colors"
-          aria-label="Account Login"
-        >
-          {user ? (
-            avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt="Account"
-                className="w-4 h-4 rounded-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <User size={13} />
-            )
-          ) : null}
-          <span>{user ? 'Account' : 'Login'}</span>
-        </Link>
+          {/* Right: Login / Account Button */}
+          <Link
+            to="/login"
+            className="flex items-center gap-1.5 bg-white border border-black/[0.08] px-3 py-1.5 rounded-xl text-xs font-heading font-semibold text-neutral-800 hover:bg-neutral-50 shadow-sm transition-colors relative z-10"
+            aria-label="Account Login"
+          >
+            {user ? (
+              avatarUrl ? (
+                <img
+                  src={avatarUrl}
+                  alt="Account"
+                  className="w-4 h-4 rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <User size={13} />
+              )
+            ) : null}
+            <span>{user ? 'Account' : 'Login'}</span>
+          </Link>
+        </div>
       </header>
 
       {/* ────────────────────────────────────────────────────────────
