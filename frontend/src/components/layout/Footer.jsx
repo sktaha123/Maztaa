@@ -166,7 +166,7 @@ export default function Footer() {
           </p>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4 order-1 sm:order-2">
+          {/* <div className="flex items-center gap-4 order-1 sm:order-2">
             {SOCIAL_LINKS.map(({ label, href, Icon }) =>
               href === '#' ? null : (
                 <a
@@ -181,7 +181,7 @@ export default function Footer() {
                 </a>
               )
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* Massive Watermark — subtle, like micro1 */}
