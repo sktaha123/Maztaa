@@ -1,13 +1,13 @@
 // ============================================================
-// MAZTAA — Centralized Website Content
+// Maztaa — Centralized Website Content
 // Single source of truth for all copy, links, and data.
 // ============================================================
 
 export const SITE_CONFIG = {
-  name: 'maztaa',
+  name: 'Maztaa',
   tagline: 'Web Design & Development Studio',
   description: 'Custom websites and digital experiences built around your business. High-performance, human-designed, and built to convert.',
-  url: 'https://maztaa.com',
+  url: 'https://Maztaa.com',
 };
 
 // ────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ export const NAV_LINKS = [
 // EXTERNAL LINKS & PLACEHOLDERS
 // ────────────────────────────────────────────────────────────
 export const SITE_LINKS = {
-  email: 'hello@maztaa.com',
+  email: 'hello@Maztaa.com',
   instagram: 'INSTAGRAM_URL',
   linkedin: 'LINKEDIN_URL',
   github: 'GITHUB_URL',
@@ -111,7 +111,7 @@ export const TECHNOLOGIES = [
 // ────────────────────────────────────────────────────────────
 export const ABOUT_CONTENT = {
   statement: `We design digital experiences that make your business impossible to ignore.`,
-  description: `maztaa was built on a simple belief: your website should be your strongest business asset. We combine bold, editorial aesthetics with modern frontend engineering to create custom digital platforms that elevate your brand and drive real client acquisition.`,
+  description: `Maztaa was built on a simple belief: your website should be your strongest business asset. We combine bold, editorial aesthetics with modern frontend engineering to create custom digital platforms that elevate your brand and drive real client acquisition.`,
   philosophy: `Every business has a distinct story. We build digital spaces tailored specifically to your clients' psychology and your conversion goals.`,
   capabilities: [
     'Custom Brand & UI Design',
@@ -412,66 +412,101 @@ export const PRICING_PLANS = [
 // ────────────────────────────────────────────────────────────
 export const FAQ_ITEMS = [
   {
-    question: 'How does the milestone payment structure work?',
+    question: 'What exactly does Maztaa build?',
     answer:
-      'Every project is divided into three milestones: 40% to begin the project, 30% after you review the functional development build, and the final 30% before final launch and project handover. The exact milestones are confirmed before work begins.',
+      'Maztaa designs and develops custom websites and digital experiences for businesses. Depending on the plan, this can include business websites, CMS features, databases, authentication, booking systems, dashboards, API integrations, and custom web applications.',
   },
 
   {
-    question: 'What is included in the price?',
+    question: 'Which plan is right for my business?',
     answer:
-      'Your package includes the features, pages, integrations, support period, and deliverables listed on its pricing page. Anything outside the agreed scope can be quoted separately before additional work begins.',
+      'Starter is ideal for businesses that need a polished online presence. Professional adds advanced functionality and integrations. Business Pro is designed for businesses needing a more complete digital system (Currently Unavailable). Larger or unique requirements can use a Custom Project.',
   },
 
   {
-    question: 'How long does a typical website project take?',
+    question: 'How does the 40/30/30 payment structure work?',
     answer:
-      'Starter projects typically take 1–2 weeks, Professional projects around 2–3 weeks, and Business Pro projects around 3–4 weeks. Larger custom projects may take longer depending on functionality and project scope.',
+      'Projects are divided into three milestones: 40% to begin, 30% after the agreed development milestone and review, and 30% before final launch and handover. Your exact payment schedule is confirmed before the project begins.',
   },
 
   {
-    question: 'Will my website work properly on mobile devices?',
+    question: 'How do I purchase a website plan?',
     answer:
-      'Yes. Every MAZTAA website is built responsively for mobile, tablet, and desktop. We optimize layouts, typography, images, navigation, and interactions to provide a smooth experience across screen sizes.',
+      'Choose the plan that fits your needs and use the checkout button to purchase through Whop. After your purchase, we will collect your project requirements and begin the agreed onboarding and development process.',
   },
 
   {
-    question: 'Do you provide the domain and hosting?',
+    question: 'Is the website completely custom or based on a template?',
     answer:
-      'We can help connect and deploy your website to your domain and hosting provider. Domain registration, renewals, hosting, and third-party service fees are included only when specifically stated in your selected plan.',
+      `Maztaa websites are designed around your business, brand, content, and goals. We do not simply install a generic template and replace its text. The exact level of customization depends on the plan you choose.`,
   },
 
   {
-    question: 'Can you add custom features to my website?',
+    question: 'How long will my website take to build?',
     answer:
-      'Yes. Professional and higher plans can include features such as databases, authentication, APIs, booking systems, dashboards, and custom integrations. Features outside your plan can be discussed as additional or custom work.',
+      'Typical Starter projects take around 1–2 weeks, Professional projects around 2–3 weeks, and Business Pro projects around 3–4 weeks. Custom projects may take longer depending on functionality, integrations, content, and scope.',
   },
 
   {
-    question: 'How many revisions are included?',
+    question: 'What do I need to provide before development starts?',
     answer:
-      'Each plan includes a defined revision allowance based on its scope. Revisions cover reasonable changes to the agreed design or functionality. Major redesigns or new features may require additional work and fees.',
+      'You should provide your business information, logo or brand assets, website content, images, contact details, and any examples or references you like. We guide you through the requirements so you do not need to prepare everything yourself.',
   },
 
   {
-    question: 'Can I update my website after it launches?',
+    question: 'Will my website work on phones, tablets, and desktops?',
     answer:
-      'Yes. Depending on your plan, we can provide CMS functionality or structured content management. We also offer ongoing maintenance for businesses that need regular updates, improvements, or technical support.',
+      'Yes. Every Maztaa website is built responsively for modern mobile, tablet, laptop, and desktop screens. Layouts, typography, navigation, images, and interactions are adjusted for different screen sizes.',
   },
 
   {
-    question: 'Who owns my website after the project is completed?',
+    question: 'Can you connect my domain and hosting?',
     answer:
-      'After full payment, ownership or usage rights for the agreed final deliverables are transferred according to your project agreement. Third-party software, open-source libraries, and MAZTAA pre-existing tools remain subject to their respective licenses.',
+      'Yes. We can connect your domain and deploy your website to the appropriate hosting platform. Domain registration, renewals, hosting, and usage-based third-party services are included only when specifically stated in your selected plan.',
   },
 
   {
-    question: 'What happens after my website goes live?',
+    question: 'Can you add login, databases, booking systems, or other custom features?',
     answer:
-      'Your included post-launch support period begins after launch. We can help resolve issues related to the delivered project during that period. Ongoing maintenance, new features, and major changes can be arranged separately.',
+      'Yes. Depending on your plan, we can build features such as Supabase databases, Google Login, user accounts, booking systems, dashboards, APIs, and third-party integrations. Requirements outside the plan can be quoted separately.',
+  },
+
+  {
+    question: 'How many revisions do I get?',
+    answer:
+      'Each plan includes a defined number of revision rounds. Revisions cover reasonable changes to the agreed design or functionality. New features, major redesigns, or changes outside the agreed scope may require an additional fee.',
+  },
+
+  {
+    question: 'Who owns the website and code after I pay?',
+    answer:
+      'After full payment, ownership or usage rights for the agreed final deliverables are transferred according to your project agreement. Maztaa retains its pre-existing tools, reusable components, frameworks, and development resources.',
+  },
+
+  {
+    question: 'What happens after my website launches?',
+    answer:
+      'Your plan includes a defined period of post-launch support. We can help resolve issues related to the delivered project during that period. Ongoing maintenance, new features, content updates, and larger changes can be arranged separately.',
+  },
+
+  {
+    question: 'What if I need something that is not included in a plan?',
+    answer:
+      'No problem. We can scope the additional requirement and provide a separate quote before starting the work. For larger or highly customized requirements, we can create a Custom Project with its own scope, timeline, and milestone structure.',
+  },
+
+  {
+    question: 'What happens if I change my mind or need to cancel?',
+    answer:
+      'Cancellation and refund eligibility depends on the project stage, work already completed, third-party costs, your project agreement, and applicable law. Our Refund & Cancellation Policy explains the process in detail.',
+  },
+
+  {
+    question: 'Do you provide ongoing website maintenance?',
+    answer:
+      'Yes. Maintenance can be arranged after launch for businesses that need ongoing updates, content changes, technical improvements, monitoring, or new functionality. Maintenance is separate unless specifically included in your selected plan.',
   },
 ];
-
 // ────────────────────────────────────────────────────────────
 // CTA SECTION
 // ────────────────────────────────────────────────────────────
@@ -486,6 +521,6 @@ export const CTA_CONTENT = {
 // FOOTER
 // ────────────────────────────────────────────────────────────
 export const FOOTER_CONTENT = {
-  description: 'MAZTAA is an independent web design and development studio crafting high-converting digital experiences for ambitious businesses.',
-  copyright: `© ${new Date().getFullYear()} MAZTAA. All rights reserved.`,
+  description: 'Maztaa is an independent web design and development studio crafting high-converting digital experiences for ambitious businesses.',
+  copyright: `© ${new Date().getFullYear()} Maztaa. All rights reserved.`,
 };

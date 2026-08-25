@@ -110,8 +110,8 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <a href={`mailto:${SITE_LINKS.email}`} className="text-sm text-neutral-700 hover:text-black transition-colors">
-                  Contact Us
+                <a href={`https://whop.com/maztaa-indol/support`} className="text-sm text-neutral-700 hover:text-black transition-colors">
+                  1-on-1 Earning Discussion
                 </a>
               </li>
             </ul>

@@ -56,10 +56,13 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        {/* ── DESKTOP (md+): Equal-width 4-column static grid ── */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-4 px-4 sm:px-6 lg:px-8">
+        {/* ── DESKTOP (md+): Centered flex-wrap — auto-centers any plan count ── */}
+        <div className="hidden md:flex md:flex-wrap md:justify-center gap-5 lg:gap-4 px-4 sm:px-6 lg:px-8">
           {PRICING_PLANS.map((plan, i) => (
-            <div key={plan.id} className="flex w-full">
+            <div
+              key={plan.id}
+              className="flex w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-12px)] min-w-[240px] max-w-[300px]"
+            >
               <PricingCard plan={plan} index={i} />
             </div>
           ))}
