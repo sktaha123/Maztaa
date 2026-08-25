@@ -145,8 +145,8 @@ export default function Footer() {
             </p>
             <ul className="flex flex-col gap-2">
               <li>
-                <a href={`mailto:${SITE_LINKS.email}`} className="text-sm text-neutral-700 hover:text-black transition-colors">
-                  {SITE_LINKS.email}
+                <a href={`https://whop.com/maztaa-indol/support`} target='/blank' className="text-sm text-neutral-700 hover:text-black transition-colors">
+                  1-on-1 Support
                 </a>
               </li>
               <li>

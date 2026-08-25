@@ -59,6 +59,30 @@ export const WHOP_LINKS = {
 };
 
 // ────────────────────────────────────────────────────────────
+// WHOP PLAN IDs — Used by the embedded CheckoutElement
+// Extract just the plan_XXX portion from WHOP_LINKS URLs.
+// null = placeholder (falls back to redirect to whop.com).
+// ────────────────────────────────────────────────────────────
+export const WHOP_PLAN_IDS = {
+  starter: {
+    full: 'plan_B1Mocyk0NFz7p',      // $800 upfront
+    milestone: 'plan_DXCJKpooxfPJT', // $320 deposit (40%)
+  },
+  professional: {
+    full: 'plan_lU05AVwVqUhoW',      // $1,500 upfront
+    milestone: 'plan_xwYUESNYuiFjB', // $600 deposit (40%)
+  },
+  businessPro: {
+    full: null,      // Replace with real plan_XXX once created
+    milestone: null,
+  },
+  custom: {
+    full: null,      // Replace with real plan_XXX once created
+    milestone: null,
+  },
+};
+
+// ────────────────────────────────────────────────────────────
 // HERO SECTION
 // ────────────────────────────────────────────────────────────
 export const HERO_CONTENT = {
@@ -284,100 +308,100 @@ export const PRICING_PLANS = [
       { label: 'Before Final Launch', percent: '30%', amount: '$450' },
     ],
   },
-  {
-    id: 'business-pro',
-    name: 'Business Pro',
-    price: '$2,800',
-    description: 'Comprehensive digital system with full database integration, portal, and checkout flow.',
-    popular: false,
-    active: true,
-    whopKey: 'businessPro',
-    theme: {
-      gradient: 'from-[#fff0f3] to-[#ffffff]',
-      border: 'border-[#ffd2dc]',
-      accentBadge: 'bg-rose-50 text-rose-700 border-rose-200',
-    },
-    features: [
-      { label: 'Custom Website Pages', included: true },
-      { label: 'Responsive Mobile & Tablet Design', included: true },
-      { label: 'Custom Brand-Based UI/UX', included: true },
-      { label: 'Contact & Inquiry System', included: true },
-      { label: 'Click-to-Call & WhatsApp Integration', included: true },
-      { label: 'Google Maps Integration', included: true },
-      { label: 'Social Media Integration', included: true },
-      { label: 'CMS / Content Management', included: true },
-      { label: 'Basic SEO Setup', included: true },
-      { label: 'Advanced SEO & Metadata', included: true },
-      { label: 'Performance Optimization', included: true },
-      { label: 'Analytics & Conversion Tracking', included: true },
-      { label: 'Domain Connection & Deployment', included: true },
-      { label: 'SSL & Security Configuration', included: true },
-      { label: 'Custom Backend / API Development', included: true },
-      { label: 'Supabase Database Integration', included: true },
-      { label: 'User Authentication & Google Login', included: true },
-      { label: 'Role-Based User Access', included: true },
-      { label: 'Admin Dashboard', included: true },
-      { label: 'Client / Customer Management Portal', included: true },
-      { label: 'Booking & Scheduling System', included: true },
-      { label: 'Third-Party API Integrations', included: true },
-      { label: 'Payment Gateway Integration', included: false },
-      { label: 'Custom Web Application Features', included: false },
-      { label: 'Post-Launch Support', included: true },
-      { label: 'Ongoing Maintenance Options', included: false },
-    ],
-    milestones: [
-      { label: 'Deposit to Start', percent: '40%', amount: '$1,120' },
-      { label: 'After Dev Review', percent: '30%', amount: '$840' },
-      { label: 'Before Final Launch', percent: '30%', amount: '$840' },
-    ],
-  },
-  {
-    id: 'custom',
-    name: 'Enterprise / Custom',
-    price: '$4,500+',
-    description: 'Tailored solutions for complex product requirements, multi-tenant apps, or platforms.',
-    popular: false,
-    active: true,
-    whopKey: 'custom',
-    theme: {
-      gradient: 'from-[#edfbf6] to-[#ffffff]',
-      border: 'border-[#d0f2e3]',
-      accentBadge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    },
-    features: [
-      { label: 'Custom Website Pages', included: true },
-      { label: 'Responsive Mobile & Tablet Design', included: true },
-      { label: 'Custom Brand-Based UI/UX', included: true },
-      { label: 'Contact & Inquiry System', included: true },
-      { label: 'Click-to-Call & WhatsApp Integration', included: true },
-      { label: 'Google Maps Integration', included: true },
-      { label: 'Social Media Integration', included: true },
-      { label: 'CMS / Content Management', included: true },
-      { label: 'Basic SEO Setup', included: true },
-      { label: 'Advanced SEO & Metadata', included: true },
-      { label: 'Performance Optimization', included: true },
-      { label: 'Analytics & Conversion Tracking', included: true },
-      { label: 'Domain Connection & Deployment', included: true },
-      { label: 'SSL & Security Configuration', included: true },
-      { label: 'Custom Backend / API Development', included: true },
-      { label: 'Supabase Database Integration', included: true },
-      { label: 'User Authentication & Google Login', included: true },
-      { label: 'Role-Based User Access', included: true },
-      { label: 'Admin Dashboard', included: true },
-      { label: 'Client / Customer Management Portal', included: true },
-      { label: 'Booking & Scheduling System', included: true },
-      { label: 'Third-Party API Integrations', included: true },
-      { label: 'Payment Gateway Integration', included: true },
-      { label: 'Custom Web Application Features', included: true },
-      { label: 'Post-Launch Support', included: true },
-      { label: 'Ongoing Maintenance Options', included: true },
-    ],
-    milestones: [
-      { label: 'Deposit to Start', percent: '40%', amount: 'Custom' },
-      { label: 'Milestone 2 Delivery', percent: '30%', amount: 'Custom' },
-      { label: 'Final Launch Delivery', percent: '30%', amount: 'Custom' },
-    ],
-  },
+  // {
+  //   id: 'business-pro',
+  //   name: 'Business Pro',
+  //   price: '$2,800',
+  //   description: 'Comprehensive digital system with full database integration, portal, and checkout flow.',
+  //   popular: false,
+  //   active: true,
+  //   whopKey: 'businessPro',
+  //   theme: {
+  //     gradient: 'from-[#fff0f3] to-[#ffffff]',
+  //     border: 'border-[#ffd2dc]',
+  //     accentBadge: 'bg-rose-50 text-rose-700 border-rose-200',
+  //   },
+  //   features: [
+  //     { label: 'Custom Website Pages', included: true },
+  //     { label: 'Responsive Mobile & Tablet Design', included: true },
+  //     { label: 'Custom Brand-Based UI/UX', included: true },
+  //     { label: 'Contact & Inquiry System', included: true },
+  //     { label: 'Click-to-Call & WhatsApp Integration', included: true },
+  //     { label: 'Google Maps Integration', included: true },
+  //     { label: 'Social Media Integration', included: true },
+  //     { label: 'CMS / Content Management', included: true },
+  //     { label: 'Basic SEO Setup', included: true },
+  //     { label: 'Advanced SEO & Metadata', included: true },
+  //     { label: 'Performance Optimization', included: true },
+  //     { label: 'Analytics & Conversion Tracking', included: true },
+  //     { label: 'Domain Connection & Deployment', included: true },
+  //     { label: 'SSL & Security Configuration', included: true },
+  //     { label: 'Custom Backend / API Development', included: true },
+  //     { label: 'Supabase Database Integration', included: true },
+  //     { label: 'User Authentication & Google Login', included: true },
+  //     { label: 'Role-Based User Access', included: true },
+  //     { label: 'Admin Dashboard', included: true },
+  //     { label: 'Client / Customer Management Portal', included: true },
+  //     { label: 'Booking & Scheduling System', included: true },
+  //     { label: 'Third-Party API Integrations', included: true },
+  //     { label: 'Payment Gateway Integration', included: false },
+  //     { label: 'Custom Web Application Features', included: false },
+  //     { label: 'Post-Launch Support', included: true },
+  //     { label: 'Ongoing Maintenance Options', included: false },
+  //   ],
+  //   milestones: [
+  //     { label: 'Deposit to Start', percent: '40%', amount: '$1,120' },
+  //     { label: 'After Dev Review', percent: '30%', amount: '$840' },
+  //     { label: 'Before Final Launch', percent: '30%', amount: '$840' },
+  //   ],
+  // },
+  // {
+  //   id: 'custom',
+  //   name: 'Enterprise / Custom',
+  //   price: '$4,500+',
+  //   description: 'Tailored solutions for complex product requirements, multi-tenant apps, or platforms.',
+  //   popular: false,
+  //   active: true,
+  //   whopKey: 'custom',
+  //   theme: {
+  //     gradient: 'from-[#edfbf6] to-[#ffffff]',
+  //     border: 'border-[#d0f2e3]',
+  //     accentBadge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  //   },
+  //   features: [
+  //     { label: 'Custom Website Pages', included: true },
+  //     { label: 'Responsive Mobile & Tablet Design', included: true },
+  //     { label: 'Custom Brand-Based UI/UX', included: true },
+  //     { label: 'Contact & Inquiry System', included: true },
+  //     { label: 'Click-to-Call & WhatsApp Integration', included: true },
+  //     { label: 'Google Maps Integration', included: true },
+  //     { label: 'Social Media Integration', included: true },
+  //     { label: 'CMS / Content Management', included: true },
+  //     { label: 'Basic SEO Setup', included: true },
+  //     { label: 'Advanced SEO & Metadata', included: true },
+  //     { label: 'Performance Optimization', included: true },
+  //     { label: 'Analytics & Conversion Tracking', included: true },
+  //     { label: 'Domain Connection & Deployment', included: true },
+  //     { label: 'SSL & Security Configuration', included: true },
+  //     { label: 'Custom Backend / API Development', included: true },
+  //     { label: 'Supabase Database Integration', included: true },
+  //     { label: 'User Authentication & Google Login', included: true },
+  //     { label: 'Role-Based User Access', included: true },
+  //     { label: 'Admin Dashboard', included: true },
+  //     { label: 'Client / Customer Management Portal', included: true },
+  //     { label: 'Booking & Scheduling System', included: true },
+  //     { label: 'Third-Party API Integrations', included: true },
+  //     { label: 'Payment Gateway Integration', included: true },
+  //     { label: 'Custom Web Application Features', included: true },
+  //     { label: 'Post-Launch Support', included: true },
+  //     { label: 'Ongoing Maintenance Options', included: true },
+  //   ],
+  //   milestones: [
+  //     { label: 'Deposit to Start', percent: '40%', amount: 'Custom' },
+  //     { label: 'Milestone 2 Delivery', percent: '30%', amount: 'Custom' },
+  //     { label: 'Final Launch Delivery', percent: '30%', amount: 'Custom' },
+  //   ],
+  // },
 ];
 
 
