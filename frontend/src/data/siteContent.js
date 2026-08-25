@@ -188,26 +188,6 @@ export const PROJECTS = [
     url: 'https://momentum-vert-chi.vercel.app/dashboard',
     featured: false,
   },
-  {
-    id: 'project-3',
-    name: 'Lumina Skin',
-    category: 'E-Commerce & Wellness',
-    description: 'High-converting direct-to-consumer store with custom checkout flow and product discovery system.',
-    tags: ['React', 'Whop API', 'Tailwind'],
-    image: '/images/projects/project-03.webp',
-    url: 'https://example.com/lumina',
-    featured: false,
-  },
-  {
-    id: 'project-4',
-    name: 'Pulse Analytics',
-    category: 'SaaS Platform',
-    description: 'Interactive analytics dashboard and marketing website built for a modern data intelligence startup.',
-    tags: ['React', 'PostgreSQL', 'Charts'],
-    image: '/images/projects/project-04.webp',
-    url: 'https://example.com/pulse',
-    featured: false,
-  },
 ];
 
 // ────────────────────────────────────────────────────────────
